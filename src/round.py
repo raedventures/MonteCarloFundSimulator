@@ -1,6 +1,6 @@
 import datetime
 
-from src.portco import Portco
+from portco import Portco
 
 
 class Round:

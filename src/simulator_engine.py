@@ -3,10 +3,10 @@ import random
 import numpy
 import pylab
 
-from src.params import *
-from src.portco import Portco
-from src.round import Round
-from src.strategy.base_strategy import BaseStrategy
+from params import *
+from portco import Portco
+from round import Round
+from strategy.base_strategy import BaseStrategy
 
 
 def constructPortCos(s: BaseStrategy):

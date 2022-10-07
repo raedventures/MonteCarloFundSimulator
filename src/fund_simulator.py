@@ -1,10 +1,10 @@
 import datetime
 import sys
 
-from src.simulator_engine import runSimulation, plotStats
-from src.params import FundParams, PortfolioSelectionParams, OutcomeNames
-from src.strategy.base_strategy import BaseStrategy
-from src.strategy.simple_prorata_strategy import SimpleProRataStrategy
+from simulator_engine import runSimulation, plotStats
+from params import FundParams, PortfolioSelectionParams, OutcomeNames
+from strategy.base_strategy import BaseStrategy
+from strategy.simple_prorata_strategy import SimpleProRataStrategy
 
 
 def setFundParameters():
