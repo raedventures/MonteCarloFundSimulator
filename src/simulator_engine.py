@@ -6,7 +6,7 @@ import pylab
 
 from portco import Portco
 from round import Round
-from src.params import OutcomeNames, getAvgDilution
+from params import OutcomeNames, getAvgDilution
 from strategy.base_strategy import BaseStrategy
 
 
