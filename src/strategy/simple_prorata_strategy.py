@@ -1,8 +1,9 @@
 import math
 import random
 
-from src.params import getAvgDilution, FundParams, PortfolioSelectionParams
+from src.params import FundParams, PortfolioSelectionParams
 from src.round import Round
+from src.round_names import RoundNames
 from src.strategy.base_strategy import BaseStrategy
 
 
@@ -35,7 +36,7 @@ class SimpleProRataStrategy(BaseStrategy):
                 break
 
         # Calculate round size
-        roundSize = getAvgDilution(valuation) * valuation
+        roundSize = RoundNames.getAvgDilution(valuation) * valuation
 
         ticket = round(allocation * valuation)
 

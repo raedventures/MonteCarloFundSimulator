@@ -6,8 +6,9 @@ import pylab
 
 from portco import Portco
 from round import Round
-from src.params import OutcomeNames
-from src.params import getAvgDilution
+from outcome_names import OutcomeNames
+from round_names import RoundNames
+# from src.params import OutcomeNames, RoundNames
 from strategy.base_strategy import BaseStrategy
 
 
@@ -49,7 +50,7 @@ def constructRounds(s: BaseStrategy):
         numFutureRounds = s.portfolioSelectionParams.outcomeTypes[p.type]["num_rounds"]
         for fr in range(numFutureRounds):
             newRoundValuation = round(initialRound.valuation * (p.avgRoundMultiple ** (fr + 1)))
-            newRoundSize = getAvgDilution(newRoundValuation) * newRoundValuation
+            newRoundSize = RoundNames.getAvgDilution(newRoundValuation) * newRoundValuation
 
             # Last src should be 0 for failing companies
             if (p.type == OutcomeNames.EarlyStageFail or p.type == OutcomeNames.Failing) and fr == numFutureRounds - 1:

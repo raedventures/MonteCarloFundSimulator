@@ -18,4 +18,4 @@ class Portco:
                " raised:" + str(self.totalRaised) + \
                " invested:" + str(self.totalInvested) + \
                " stake:" + str(self.lastOwnershipStake) + \
-               " roundMult: " + str(round(self.avgRoundMultiple,2))
+               " roundMult: " + str(round(self.avgRoundMultiple, 2))
