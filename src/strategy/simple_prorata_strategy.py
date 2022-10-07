@@ -34,17 +34,21 @@ class SimpleProRataStrategy(BaseStrategy):
                 allocation = j[0]
                 break
 
+        # Calculate round size
+        roundSize = getAvgDilution(valuation) * valuation
+
         ticket = round(allocation * valuation)
 
         # make sure ticket is within fund ticket size rules
         ticket = min(ticket, self.maximum_initial_ticket)  # does not exceed max initial ticket
         ticket = max(ticket, self.minimum_initial_ticket)  # does not go below min initial ticket size
-        ticket = min(ticket,
-                     self.fundParams.investable_capital - self.totalCapitalDeployed)  # does not exceed investable capital
+        ticket = min(ticket, self.fundParams.investable_capital - self.totalCapitalDeployed)  # does not exceed investable capital
+
+        # Safety check: If min ticket requirements exceed round size then cap at 75% of the round
+        if ticket >= roundSize:
+            ticket = 0.75 * roundSize
 
         allocation = round(ticket / valuation, 2)
-
-        roundSize = getAvgDilution(valuation) * valuation
 
         r.portco.lastValuation = valuation
         r.portco.totalRaised += roundSize
