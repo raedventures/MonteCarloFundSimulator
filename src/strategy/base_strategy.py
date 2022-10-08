@@ -14,7 +14,6 @@ class BaseStrategy:
         self.fundParams = fund_params
         self.portfolioSelectionParams = portfolio_params
 
-        self.num_portcos = 30
         self.deployment_period = 3
         self.target_ownership = 0.1
         self.max_concentration = 0.1 * self.fundParams.fund_size
@@ -23,7 +22,19 @@ class BaseStrategy:
         self.maximum_initial_ticket = 5000000
         self.minimum_followon_ticket = 1500000
         self.maximum_followon_ticket = 5000000
+        self.num_portcos = self.setNumPortCos(30)
 
+    def setNumPortCos(self, num: int):
+        self.num_portcos = num
+        newMax = 1.0 * self.fundParams.investable_capital / num
+
+        # if num portcos is too high then adjust max initial tickets to allow for at least 1 ticket in each portco
+        if newMax < self.maximum_initial_ticket:
+            self.maximum_initial_ticket = newMax
+            if self.minimum_initial_ticket > newMax: # if minimum is too high then cap minimum also
+                self.minimum_initial_ticket = newMax
+
+        return num
 
     def clearAll(self):
         """ Clear all portfolio and investment rounds """
@@ -62,4 +73,3 @@ class BaseStrategy:
         if prob >= random.randint(1, 100):
             return True
         return False
-
