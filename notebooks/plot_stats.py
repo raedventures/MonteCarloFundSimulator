@@ -60,31 +60,22 @@ def plot_stats_notebook(m, t, o, d):
 def plot_sweep_stats(x, y, plot_label):
     # set figure size
     pylab.rcParams["figure.figsize"] = (12, 4)
-    # set line width
-    pylab.rcParams['lines.linewidth'] = 4
-    # set font size for titles
-    pylab.rcParams['axes.titlesize'] = 12
-    # set font size for labels on axes
-    pylab.rcParams['axes.labelsize'] = 7
-    # set size of numbers on x-axis
-    pylab.rcParams['xtick.labelsize'] = 7
-    # set size of numbers on y-axis
-    pylab.rcParams['ytick.labelsize'] = 7
-    # set size of ticks on x-axis
-    pylab.rcParams['xtick.major.size'] = 7
-    # set size of ticks on y-axis
-    pylab.rcParams['ytick.major.size'] = 7
-    # set size of markers, e.g., circles representing points
-    # set numpoints for legend
-    pylab.rcParams['legend.numpoints'] = 1
-
     pylab.figure(1)
 
-    pylab.subplot(1, 1, 1)
-    pylab.plot(x, y["mean"], label=str(plot_label + " mean"))
-    pylab.plot(x, y["min"], label=str(plot_label + " min"))
-    pylab.plot(x, y["max"], label=str(plot_label + " max"))
-    pylab.title(plot_label + ' Sweep across portfolio size')
-    pylab.legend(loc='upper left')
+    pylab.subplot(1, 3, 1)
+    pylab.title(plot_label + ' median')
+    # pylab.legend(loc='upper left')
+    pylab.plot(x, y["median"], label=str(plot_label + " median"), color="blue")
 
+    pylab.subplot(1, 3, 2)
+    pylab.title(plot_label + ' top decile')
+    # pylab.legend(loc='upper left')
+    pylab.plot(x, y["top"], label=str(plot_label + " top decile"), color="green")
+
+    pylab.subplot(1, 3, 3)
+    pylab.title(plot_label + ' bottom decile')
+    # pylab.legend(loc='upper left')
+    pylab.plot(x, y["bottom"], label=str(plot_label + " bottom decile"), color="red")
+
+    # pylab.legend(loc='upper right')
     pylab.show()

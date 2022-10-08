@@ -40,8 +40,8 @@ class PortfolioSelectionParams:
             OutcomeNames.Niche: 65,  # 22% prob (65% cum)
             OutcomeNames.AlsoRan: 89,  # 20% prob (87% cum)
             OutcomeNames.CloseChallenger: 95,  # 10% prob (95% cum)
-            OutcomeNames.MarketLeader: 98,  # 2% prob (98% cum)
-            OutcomeNames.MarketOutlier: 100  # 1% prob (100% cum)
+            OutcomeNames.MarketLeader: 98,  # 3% prob (98% cum)
+            OutcomeNames.MarketOutlier: 100  # 2% prob (100% cum)
         }
 
         # Initial target valuation range probability distribution
