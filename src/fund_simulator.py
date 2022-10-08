@@ -22,7 +22,7 @@ def setFundParameters():
     return f
 
 
-def setSelectionParameters():
+def setPortfolioSelectionParameters():
     portSelectionParams = PortfolioSelectionParams()
 
     # Market-driven startup outcomes with eventual exit value and number of rounds to get there
@@ -69,7 +69,6 @@ def setSelectionParameters():
 
 
 def setStrategyParameters(s: BaseStrategy):
-    s.num_portcos = 25
     s.deployment_period = 3
     s.target_ownership = 0.1
     s.max_concentration = 0.1 * s.fundParams.fund_size
@@ -78,13 +77,14 @@ def setStrategyParameters(s: BaseStrategy):
     s.maximum_initial_ticket = 1500000
     s.minimum_followon_ticket = 1000000
     s.maximum_followon_ticket = 2000000
+    s.setNumPortCos(25)
 
     return s
 
 
 if __name__ == '__main__':
     fp = setFundParameters()
-    psp = setSelectionParameters()
+    psp = setPortfolioSelectionParameters()
     strategy = setStrategyParameters(SimpleProRataStrategy(fp, psp))
 
     # strategy = SimpleProRataStrategy()
