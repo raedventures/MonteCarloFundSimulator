@@ -182,7 +182,7 @@ def showProgressBar(iteration, total, prefix='', suffix='', decimals=2, bar_leng
         print('\n')
 
 
-def runSimulation(s: BaseStrategy, num_iterations):
+def runSimulation(s: BaseStrategy, num_iterations, show_progress=True):
     moics = []
     tvpis = []
     outcomes = [0, 0, 0, 0, 0, 0, 0]
@@ -192,9 +192,9 @@ def runSimulation(s: BaseStrategy, num_iterations):
     fill = math.floor(math.log10(num_iterations) + 1)
 
     for x in range(num_iterations):
-        showProgressBar(x + 1, num_iterations,
-                        "Monte Carlo Fund Simulation # " + str(x + 1).rjust(fill) + " / "
-                        + str(num_iterations) + ":")
+        if show_progress:
+            showProgressBar(x + 1, num_iterations, "Monte Carlo Fund Simulation # " + str(x + 1).rjust(fill) + " / "
+                            + str(num_iterations) + ":")
 
         constructPortCos(s)  # create initial list of portfolio companies
 

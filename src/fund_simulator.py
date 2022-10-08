@@ -90,9 +90,9 @@ if __name__ == '__main__':
     # strategy = SimpleProRataStrategy()
 
     # Read runtime args (if any) for number of iterations
-    num_iterations = 5000 if len(sys.argv) <= 1 else int(sys.argv[1])
+    num_iterations = 1000 if len(sys.argv) <= 1 else int(sys.argv[1])
 
-    moics, tvpis, outcomes, [it, ft] = runSimulation(strategy, num_iterations)
+    moics, tvpis, outcomes, [it, ft] = runSimulation(strategy, num_iterations, show_progress=True)
 
     # plot fund performance summary
     plotStats(moics, tvpis, outcomes, [it, ft])
