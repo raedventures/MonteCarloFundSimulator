@@ -9,7 +9,7 @@ from src.strategy.base_strategy import BaseStrategy
 
 class SimpleProRataStrategy(BaseStrategy):
     def __init__(self, fund_params=FundParams(), portfolio_params=PortfolioSelectionParams()):
-        BaseStrategy.__init__(self, fund_params, portfolio_params)
+        super().__init__(fund_params, portfolio_params)
 
     def generateInitialTicket(self, r):
         """

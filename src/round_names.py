@@ -10,6 +10,7 @@ class RoundNames(Enum):
     SeriesD = 6,
     SeriesE = 7
 
+    @staticmethod
     def getAvgDilution(valuation):
         """ Returns average dilution for a src at a certain valuation """
         for i in normalizedRound:

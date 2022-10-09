@@ -3,6 +3,7 @@ import sys
 
 from simulator_engine import runSimulation, plotStats
 from params import FundParams, PortfolioSelectionParams, OutcomeNames
+from src.strategy.double_tap_strategy import DoubleTapStrategy
 from strategy.base_strategy import BaseStrategy
 from strategy.simple_prorata_strategy import SimpleProRataStrategy
 
@@ -85,7 +86,8 @@ def setStrategyParameters(s: BaseStrategy):
 if __name__ == '__main__':
     fp = setFundParameters()
     psp = setPortfolioSelectionParameters()
-    strategy = setStrategyParameters(SimpleProRataStrategy(fp, psp))
+    strategy = DoubleTapStrategy(fund_params=fp, portfolio_params=psp)
+    strategy = setStrategyParameters(strategy)
 
     # strategy = SimpleProRataStrategy()
 
@@ -97,6 +99,6 @@ if __name__ == '__main__':
     # plot fund performance summary
     plotStats(moics, tvpis, outcomes, [it, ft])
 
-    # strategy.investmentRounds.sort(key=lambda rd: (rd.portco.num, rd.roundDate))
-    # for x in strategy.investmentRounds:
-    #     print(x)
+    strategy.investmentRounds.sort(key=lambda rd: (rd.portco.num, rd.roundDate))
+    for x in strategy.investmentRounds:
+        print(x)
