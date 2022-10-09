@@ -7,21 +7,20 @@ def plot_stats_notebook(m, t, o, d):
     pylab.rcParams["figure.figsize"] = (12, 4)
     # # set line width
     # pylab.rcParams['lines.linewidth'] = 4
-    # # set font size for titles
-    # pylab.rcParams['axes.titlesize'] = 12
-    # # set font size for labels on axes
-    # pylab.rcParams['axes.labelsize'] = 7
-    # # set size of numbers on x-axis
-    # pylab.rcParams['xtick.labelsize'] = 7
-    # # set size of numbers on y-axis
-    # pylab.rcParams['ytick.labelsize'] = 7
-    # # set size of ticks on x-axis
-    # pylab.rcParams['xtick.major.size'] = 7
-    # # set size of ticks on y-axis
-    # pylab.rcParams['ytick.major.size'] = 7
-    # # set size of markers, e.g., circles representing points
-    # # set numpoints for legend
-    # pylab.rcParams['legend.numpoints'] = 1
+    # set font size for titles
+    pylab.rcParams['axes.titlesize'] = 12
+    # set font size for labels on axes
+    pylab.rcParams['axes.labelsize'] = 7
+    # set size of numbers on x-axis
+    pylab.rcParams['xtick.labelsize'] = 7
+    # set size of numbers on y-axis
+    pylab.rcParams['ytick.labelsize'] = 7
+    # set size of ticks on x-axis
+    pylab.rcParams['xtick.major.size'] = 7
+    # set size of ticks on y-axis
+    pylab.rcParams['ytick.major.size'] = 7
+    # set numpoints for legend
+    pylab.rcParams['legend.numpoints'] = 1
 
     pylab.gcf().canvas.manager.set_window_title('Monte Carlo Fund Simulator')
 
@@ -60,6 +59,20 @@ def plot_stats_notebook(m, t, o, d):
 def plot_sweep_stats(x, y, plot_label):
     # set figure size
     pylab.rcParams["figure.figsize"] = (12, 4)
+    # set font size for titles
+    pylab.rcParams['axes.titlesize'] = 12
+    # set font size for labels on axes
+    pylab.rcParams['axes.labelsize'] = 7
+    # set size of numbers on x-axis
+    pylab.rcParams['xtick.labelsize'] = 7
+    # set size of numbers on y-axis
+    pylab.rcParams['ytick.labelsize'] = 7
+    # set size of ticks on x-axis
+    pylab.rcParams['xtick.major.size'] = 7
+    # set size of ticks on y-axis
+    pylab.rcParams['ytick.major.size'] = 7
+    # set numpoints for legend
+    pylab.rcParams['legend.numpoints'] = 1
 
     pylab.figure(1)
 
@@ -79,4 +92,44 @@ def plot_sweep_stats(x, y, plot_label):
     pylab.plot(x, y["bottom"], label=str(plot_label + " bottom decile"), color="red")
 
     # pylab.legend(loc='upper right')
+    pylab.show()
+
+
+def plot_compare_sweeps(x, y_both, title, plot_label_both):
+    # set figure size
+    pylab.rcParams["figure.figsize"] = (12, 4)
+    # set font size for titles
+    pylab.rcParams['axes.titlesize'] = 12
+    # set font size for labels on axes
+    pylab.rcParams['axes.labelsize'] = 7
+    # set size of numbers on x-axis
+    pylab.rcParams['xtick.labelsize'] = 7
+    # set size of numbers on y-axis
+    pylab.rcParams['ytick.labelsize'] = 7
+    # set size of ticks on x-axis
+    pylab.rcParams['xtick.major.size'] = 7
+    # set size of ticks on y-axis
+    pylab.rcParams['ytick.major.size'] = 7
+    # set numpoints for legend
+    pylab.rcParams['legend.numpoints'] = 1
+
+    pylab.figure(1)
+    pylab.subplot(1, 3, 1)
+    pylab.title(title + ' median')
+    pylab.plot(x, y_both[0]["median"], label=str(plot_label_both[0]), color="blue")
+    pylab.plot(x, y_both[1]["median"], label=str(plot_label_both[1]), color="dodgerblue", linestyle="--")
+    pylab.legend(loc='upper left')
+
+    pylab.subplot(1, 3, 2)
+    pylab.title(title + ' top decile')
+    pylab.plot(x, y_both[0]["top"], label=str(plot_label_both[0]), color="green")
+    pylab.plot(x, y_both[1]["top"], label=str(plot_label_both[1]), color="limegreen", linestyle="--")
+    pylab.legend(loc='upper left')
+
+    pylab.subplot(1, 3, 3)
+    pylab.title(title + ' bottom decile')
+    pylab.plot(x, y_both[0]["bottom"], label=str(plot_label_both[0]), color="red")
+    pylab.plot(x, y_both[1]["bottom"], label=str(plot_label_both[1]), color="tomato", linestyle="--")
+    pylab.legend(loc='upper left')
+
     pylab.show()
