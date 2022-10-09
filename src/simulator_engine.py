@@ -77,7 +77,7 @@ def constructRounds(s: BaseStrategy):
 
         s.generateFollowOnTicket(r)
 
-    return s.initialTickets, s.followOnTickets
+    return s.initialTickets, s.followOnTickets, len(s.investmentRounds)
 
 
 def computeFundStats(s: BaseStrategy):
@@ -185,6 +185,7 @@ def runSimulation(s: BaseStrategy, num_iterations, show_progress=True):
     outcomes = [0, 0, 0, 0, 0, 0, 0]
     sumInitialTickets = 0
     sumFollowOns = 0
+    numRounds = 0
 
     fill = math.floor(math.log10(num_iterations) + 1)
 
@@ -195,9 +196,10 @@ def runSimulation(s: BaseStrategy, num_iterations, show_progress=True):
 
         constructPortCos(s)  # create initial list of portfolio companies
 
-        i, f = constructRounds(s)  # make all deployment decisions based on the fund strategy
+        i, f, nr = constructRounds(s)  # make all deployment decisions based on the fund strategy
         sumInitialTickets += i
         sumFollowOns += f
+        numRounds += nr
 
         m, t, o = computeFundStats(s)  # compute fund performance stats
         moics.append(m)
@@ -207,5 +209,5 @@ def runSimulation(s: BaseStrategy, num_iterations, show_progress=True):
         # print(round(s.initialTickets), round(s.followOnTickets),
         #       round(s.totalCapitalDeployed), m, t, o)
 
-    return moics, tvpis, outcomes, [sumInitialTickets, sumFollowOns]
+    return moics, tvpis, outcomes, [sumInitialTickets, sumFollowOns], numRounds
 
