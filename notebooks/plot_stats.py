@@ -5,24 +5,23 @@ import numpy
 def plot_stats_notebook(m, t, o, d):
     # set figure size
     pylab.rcParams["figure.figsize"] = (12, 4)
-    # set line width
-    pylab.rcParams['lines.linewidth'] = 4
-    # set font size for titles
-    pylab.rcParams['axes.titlesize'] = 12
-    # set font size for labels on axes
-    pylab.rcParams['axes.labelsize'] = 7
-    # set size of numbers on x-axis
-    pylab.rcParams['xtick.labelsize'] = 7
-    # set size of numbers on y-axis
-    pylab.rcParams['ytick.labelsize'] = 7
-    # set size of ticks on x-axis
-    pylab.rcParams['xtick.major.size'] = 7
-    # set size of ticks on y-axis
-    pylab.rcParams['ytick.major.size'] = 7
-    # set size of markers, e.g., circles representing points
-    # set numpoints for legend
-    pylab.rcParams['legend.numpoints'] = 1
-    pylab.rcParams['lines.linewidth'] = 2
+    # # set line width
+    # pylab.rcParams['lines.linewidth'] = 4
+    # # set font size for titles
+    # pylab.rcParams['axes.titlesize'] = 12
+    # # set font size for labels on axes
+    # pylab.rcParams['axes.labelsize'] = 7
+    # # set size of numbers on x-axis
+    # pylab.rcParams['xtick.labelsize'] = 7
+    # # set size of numbers on y-axis
+    # pylab.rcParams['ytick.labelsize'] = 7
+    # # set size of ticks on x-axis
+    # pylab.rcParams['xtick.major.size'] = 7
+    # # set size of ticks on y-axis
+    # pylab.rcParams['ytick.major.size'] = 7
+    # # set size of markers, e.g., circles representing points
+    # # set numpoints for legend
+    # pylab.rcParams['legend.numpoints'] = 1
 
     pylab.gcf().canvas.manager.set_window_title('Monte Carlo Fund Simulator')
 
