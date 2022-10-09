@@ -22,6 +22,7 @@ def plot_stats_notebook(m, t, o, d):
     # set size of markers, e.g., circles representing points
     # set numpoints for legend
     pylab.rcParams['legend.numpoints'] = 1
+    pylab.rcParams['lines.linewidth'] = 2
 
     pylab.gcf().canvas.manager.set_window_title('Monte Carlo Fund Simulator')
 
@@ -60,6 +61,7 @@ def plot_stats_notebook(m, t, o, d):
 def plot_sweep_stats(x, y, plot_label):
     # set figure size
     pylab.rcParams["figure.figsize"] = (12, 4)
+
     pylab.figure(1)
 
     pylab.subplot(1, 3, 1)
