@@ -19,8 +19,8 @@ class DoubleTapStrategy(SimpleProRataStrategy):
         total_tickets = 1.0 * self.fundParams.investable_capital / num
 
         # Do 25:75 split between initial and follow on
-        self.initial_ticket = 0.25 * total_tickets
-        self.followon_ticket = 0.75 * total_tickets
+        self.initial_ticket = 0.5 * total_tickets
+        self.followon_ticket = 0.5 * total_tickets
 
         self.maximum_initial_ticket = self.minimum_initial_ticket = self.initial_ticket
         self.maximum_followon_ticket = self.minimum_followon_ticket = self.followon_ticket
