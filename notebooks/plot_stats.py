@@ -58,7 +58,7 @@ def plot_stats_notebook(m, t, o, d):
 
 def plot_sweep_stats(x, y, plot_label):
     # set figure size
-    pylab.rcParams["figure.figsize"] = (12, 4)
+    pylab.rcParams["figure.figsize"] = (15, 4)
     # set font size for titles
     pylab.rcParams['axes.titlesize'] = 12
     # set font size for labels on axes
@@ -76,22 +76,24 @@ def plot_sweep_stats(x, y, plot_label):
 
     pylab.figure(1)
 
-    pylab.subplot(1, 3, 1)
+    pylab.subplot(1, 4, 1)
     pylab.title(plot_label + ' median')
-    # pylab.legend(loc='upper left')
     pylab.plot(x, y["median"], label=str(plot_label + " median"), color="blue")
 
-    pylab.subplot(1, 3, 2)
+    pylab.subplot(1, 4, 2)
     pylab.title(plot_label + ' top decile')
-    # pylab.legend(loc='upper left')
     pylab.plot(x, y["top"], label=str(plot_label + " top decile"), color="green")
 
-    pylab.subplot(1, 3, 3)
+    pylab.subplot(1, 4, 3)
     pylab.title(plot_label + ' bottom decile')
-    # pylab.legend(loc='upper left')
     pylab.plot(x, y["bottom"], label=str(plot_label + " bottom decile"), color="red")
 
-    # pylab.legend(loc='upper right')
+    pylab.subplot(1, 4, 4)
+    pylab.title(plot_label + ' combined')
+    pylab.plot(x, y["median"], label=str(plot_label + " median"), color="blue")
+    pylab.plot(x, y["top"], label=str(plot_label + " top decile"), color="green")
+    pylab.plot(x, y["bottom"], label=str(plot_label + " bottom decile"), color="red")
+
     pylab.show()
 
 
@@ -117,19 +119,19 @@ def plot_compare_sweeps(x, y_both, title, plot_label_both):
     pylab.subplot(1, 3, 1)
     pylab.title(title + ' median')
     pylab.plot(x, y_both[0]["median"], label=str(plot_label_both[0]), color="blue")
-    pylab.plot(x, y_both[1]["median"], label=str(plot_label_both[1]), color="dodgerblue", linestyle="--")
+    pylab.plot(x, y_both[1]["median"], label=str(plot_label_both[1]), color="dodgerblue")
     pylab.legend(loc='upper left')
 
     pylab.subplot(1, 3, 2)
     pylab.title(title + ' top decile')
     pylab.plot(x, y_both[0]["top"], label=str(plot_label_both[0]), color="green")
-    pylab.plot(x, y_both[1]["top"], label=str(plot_label_both[1]), color="limegreen", linestyle="--")
+    pylab.plot(x, y_both[1]["top"], label=str(plot_label_both[1]), color="limegreen")
     pylab.legend(loc='upper left')
 
     pylab.subplot(1, 3, 3)
     pylab.title(title + ' bottom decile')
     pylab.plot(x, y_both[0]["bottom"], label=str(plot_label_both[0]), color="red")
-    pylab.plot(x, y_both[1]["bottom"], label=str(plot_label_both[1]), color="tomato", linestyle="--")
+    pylab.plot(x, y_both[1]["bottom"], label=str(plot_label_both[1]), color="darkorange")
     pylab.legend(loc='upper left')
 
     pylab.show()
