@@ -13,7 +13,6 @@ class DoubleTapStrategy(SimpleProRataStrategy):
         self.followon_ticket = 0
         super().__init__(fund_params, portfolio_params)
 
-
     def setNumPortCos(self, num: int):
         self.num_portcos = num
 
@@ -22,7 +21,7 @@ class DoubleTapStrategy(SimpleProRataStrategy):
 
         # Use ratio to split between initial and follow on
         self.initial_ticket = self.ratio * total_tickets
-        self.followon_ticket = (1-self.ratio) * total_tickets
+        self.followon_ticket = (1 - self.ratio) * total_tickets
 
         self.maximum_initial_ticket = self.minimum_initial_ticket = self.initial_ticket
         self.maximum_followon_ticket = self.minimum_followon_ticket = self.followon_ticket
