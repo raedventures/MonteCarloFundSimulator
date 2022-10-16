@@ -17,11 +17,11 @@ class BaseStrategy:
         self.deployment_period = 3
         self.target_ownership = 0.1
         self.max_concentration = 0.1 * self.fundParams.fund_size
-        self.max_valuation = 250000000
-        self.minimum_initial_ticket = 1000000
-        self.maximum_initial_ticket = 5000000
-        self.minimum_followon_ticket = 1500000
-        self.maximum_followon_ticket = 5000000
+        self.max_valuation = 250_000_000
+        self.minimum_initial_ticket = 1_000_000
+        self.maximum_initial_ticket = 5_000_000
+        self.minimum_followon_ticket = 1_500_000
+        self.maximum_followon_ticket = 5_000_000
         self.num_portcos = self.setNumPortCos(30)
 
     def setNumPortCos(self, num: int):

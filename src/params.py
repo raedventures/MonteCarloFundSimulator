@@ -7,7 +7,7 @@ class FundParams:
     """ Fund object holding key fund parameters """
 
     def __init__(self):
-        self.fund_size = 150000000
+        self.fund_size = 150_000_000
         self.fund_lifetime = 10
         self.management_fees = 0.018
         self.fund_expenses = 0.01
@@ -26,11 +26,11 @@ class PortfolioSelectionParams:
         self.outcomeTypes = {
             OutcomeNames.EarlyStageFail: {"exit_value": 0, "num_rounds": 2},
             OutcomeNames.Failing: {"exit_value": 0, "num_rounds": 3},
-            OutcomeNames.Niche: {"exit_value": 100000000, "num_rounds": 3},
-            OutcomeNames.AlsoRan: {"exit_value": 300000000, "num_rounds": 4},
-            OutcomeNames.CloseChallenger: {"exit_value": 600000000, "num_rounds": 5},
-            OutcomeNames.MarketLeader: {"exit_value": 2000000000, "num_rounds": 5},
-            OutcomeNames.MarketOutlier: {"exit_value": 5000000000, "num_rounds": 6}
+            OutcomeNames.Niche: {"exit_value": 100_000_000, "num_rounds": 3},
+            OutcomeNames.AlsoRan: {"exit_value": 300_000_000, "num_rounds": 4},
+            OutcomeNames.CloseChallenger: {"exit_value": 600_000_000, "num_rounds": 5},
+            OutcomeNames.MarketLeader: {"exit_value": 2_000_000_000, "num_rounds": 5},
+            OutcomeNames.MarketOutlier: {"exit_value": 5_000_000_000, "num_rounds": 6}
         }
 
         # Skill of selecting each type of company
@@ -46,11 +46,11 @@ class PortfolioSelectionParams:
 
         # Initial target valuation range probability distribution
         self.initialValuationDist = (
-            (10000000, 28),  # 28%
-            (15000000, 55),  # 28% (56% cumulative)
-            (25000000, 87),  # 16% (72% cumulative)
-            (35000000, 95),  # 11% (83% cumulative)
-            (50000000, 100),  # 17% (100% cumulative)
+            (10_000_000, 28),  # 28%
+            (15_000_000, 55),  # 28% (56% cumulative)
+            (25_000_000, 87),  # 16% (72% cumulative)
+            (35_000_000, 95),  # 11% (83% cumulative)
+            (50_000_000, 100),  # 17% (100% cumulative)
         )
 
         # Initial allocation probability distribution
